@@ -1,4 +1,129 @@
-.test {
-  background: red;
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  height: 100vh;
+}
+
+header {
+  font-size: 2.5rem;
+  padding: 20px;
+  text-align: center;
+  height: 10vh;
+  margin: 10px 10px 0 10px;
+  background: #ff7070;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 20px;
+  margin: 0 10px 10px 10px;
+  background-image: linear-gradient(135deg, #fff06a, #aa86c8);
+  border-radius: 5px;
+}
+
+.textInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.3rem;
+}
+
+.textInfo #city {
+  font-size: 2rem;
+}
+
+.textInfo .time {
+  margin: 10vh;
+}
+
+.input-bar {
+  background: #2d2a3f;
+  padding: 7px;
+  margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50vh;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-radius: 40px;
+}
+
+.input-search {
+  border: none;
+  padding: 10px;
+  background: none;
+  color: #f1eeee;
+  font-size: 1.3rem;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  background: none;
+  border-radius: 50%;
+  padding: 9px;
+  background: #f1eeee;
+}
+
+button .icon-button {
+  height: 4vh;
+  width: 4vh;
+}
+
+input:focus {
+  outline: none;
+}
+
+::-webkit-input-placeholder {
+  color: #b1b0b0;
+  opacity: 0.6;
+}
+
+:-ms-input-placeholder {
+  color: #b1b0b0;
+  opacity: 0.6;
+}
+
+::-ms-input-placeholder {
+  color: #b1b0b0;
+  opacity: 0.6;
+}
+
+::placeholder {
+  color: #b1b0b0;
+  opacity: 0.6;
 }
 /*# sourceMappingURL=main.css.map */
