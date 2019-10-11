@@ -1,2 +1,3 @@
 weatherAPI();
 constantTime();
+inputCity();

@@ -10,15 +10,6 @@ body {
   height: 100vh;
 }
 
-header {
-  font-size: 2.5rem;
-  padding: 20px;
-  text-align: center;
-  height: 10vh;
-  margin: 10px 10px 0 10px;
-  background: #ff7070;
-}
-
 .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -34,9 +25,9 @@ header {
       -ms-flex-align: center;
           align-items: center;
   padding-top: 20px;
-  margin: 0 10px 10px 10px;
-  background-image: linear-gradient(135deg, #fff06a, #aa86c8);
-  border-radius: 5px;
+  margin: 40px 20px 20px 20px;
+  background-image: linear-gradient(135deg, #4937ac, #aa86c8);
+  border-radius: 6px;
 }
 
 .textInfo {
@@ -54,14 +45,27 @@ header {
       -ms-flex-align: center;
           align-items: center;
   font-size: 1.3rem;
+  color: #e7e5e5;
+  line-height: 40px;
 }
 
 .textInfo #city {
   font-size: 2rem;
 }
 
+.textInfo .temp {
+  font-size: 3rem;
+  margin: 15px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
 .textInfo .time {
-  margin: 10vh;
+  margin: 5vh;
+  font-size: 2rem;
 }
 
 .input-bar {
@@ -125,5 +129,10 @@ input:focus {
 ::placeholder {
   color: #b1b0b0;
   opacity: 0.6;
+}
+
+.icon {
+  height: 150px;
+  width: 150px;
 }
 /*# sourceMappingURL=main.css.map */

@@ -1,5 +1,5 @@
 const weatherAPI = () => {
-  fetch(apiURL)
+  fetch(`${api}${apiCity}${apiID}`)
     //convert to json
     .then(res => res.json())
     //generate/use data
@@ -22,15 +22,16 @@ const generateHtml = data => {
   const temp = `${data.main.temp - 273.15}`;
   let tempCelsius = `${Math.round(temp)}°C`;
   const type = `${data.weather[0].main}`;
-
-  weatherTemp.addEventListener("click", () => {
-    changeTemp(weatherTemp, temp, tempCelsius);
-  });
-  weatherTemp.textContent = tempCelsius;
-  weatherDesc.textContent = desc;
-  cityName.append(city);
-  countryName.textContent = country;
-  weatherType.textContent = type;
+  if (apiURL) {
+    weatherTemp.addEventListener("click", () => {
+      changeTemp(weatherTemp, temp, tempCelsius);
+    });
+    weatherTemp.textContent = tempCelsius;
+    weatherDesc.textContent = desc;
+    cityName.append(city);
+    countryName.textContent = country;
+    weatherType.textContent = type;
+  }
 };
 
 const getIcon = data => {
@@ -79,4 +80,12 @@ const changeTemp = (weatherTemp, temp, tempCelsius) => {
     let tempCelsius = `${Math.round(temp)}°C`;
     weatherTemp.textContent = tempCelsius;
   }
+};
+
+const inputCity = () => {
+  let inputSearch = document.querySelector(".input-search");
+  let iconButton = document.querySelector(".icon-button");
+  iconButton.addEventListener("click", () => {
+    let apiCity = inputSearch.toString();
+  });
 };
