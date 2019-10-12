@@ -1,4 +1,6 @@
 const weatherAPI = () => {
+  console.log(apiCity);
+  const apiURL = `${api}${apiCity}${apiID}`;
   fetch(`${api}${apiCity}${apiID}`)
     //convert to json
     .then(res => res.json())
@@ -11,7 +13,7 @@ const weatherAPI = () => {
 
 const generateHtml = data => {
   console.log(data);
-  const cityName = document.querySelector("#city");
+
   const countryName = document.querySelector("#country-name");
   const weatherDesc = document.querySelector(".weather-desc");
   const weatherTemp = document.querySelector(".temp");
@@ -19,19 +21,32 @@ const generateHtml = data => {
   const desc = `${data.weather[0].description.toUpperCase()}`;
   const country = `${data.sys.country}`;
   const city = data.name;
-  const temp = `${data.main.temp - 273.15}`;
+  let temp = `${data.main.temp - 273.15}`;
   let tempCelsius = `${Math.round(temp)}°C`;
   const type = `${data.weather[0].main}`;
-  if (apiURL) {
-    weatherTemp.addEventListener("click", () => {
-      changeTemp(weatherTemp, temp, tempCelsius);
-    });
-    weatherTemp.textContent = tempCelsius;
-    weatherDesc.textContent = desc;
-    cityName.append(city);
-    countryName.textContent = country;
-    weatherType.textContent = type;
-  }
+
+  //***********************check click button after new city */
+  weatherTemp.addEventListener("click", () => {
+    console.log(weatherTemp.textContent);
+    console.log(tempCelsius);
+    let newTemp = Math.round(temp);
+    console.log(`${newTemp}°C`);
+    console.log;
+    if (tempCelsius === weatherTemp.textContent) {
+      let tempCelsius = `${Math.round((temp * 9) / 5 + 32)}°F`;
+      weatherTemp.textContent = tempCelsius;
+    } else {
+      let tempCelsius = `${Math.round(temp)}°C`;
+      weatherTemp.textContent = tempCelsius;
+    }
+  });
+  //********************** */8
+
+  weatherTemp.textContent = tempCelsius;
+  weatherDesc.textContent = desc;
+  cityName.textContent = city;
+  countryName.textContent = country;
+  weatherType.textContent = type;
 };
 
 const getIcon = data => {
@@ -72,20 +87,32 @@ const constantTime = () => {
   setInterval(setTime, 1000);
   setTime();
 };
-const changeTemp = (weatherTemp, temp, tempCelsius) => {
-  if (weatherTemp.textContent === `${Math.round(temp)}°C`) {
-    let tempCelsius = `${Math.round((temp * 9) / 5 + 32)}°F`;
-    weatherTemp.textContent = tempCelsius;
-  } else {
-    let tempCelsius = `${Math.round(temp)}°C`;
-    weatherTemp.textContent = tempCelsius;
-  }
-};
 
 const inputCity = () => {
   let inputSearch = document.querySelector(".input-search");
   let iconButton = document.querySelector(".icon-button");
   iconButton.addEventListener("click", () => {
-    let apiCity = inputSearch.toString();
+    fetchData();
   });
+  inputSearch.addEventListener("keydown", e => {
+    if (e.key === "Enter") {
+      fetchData();
+    }
+  });
+};
+
+const fetchData = () => {
+  let apiCity = inputSearch.value;
+  const apiURL = `${api}${apiCity}${apiID}`;
+  fetch(apiURL)
+    //convert to json
+    .then(res => res.json())
+    //generate/use data
+    .then(data => {
+      generateHtml(data);
+      getIcon(data);
+    })
+    .catch(error => {
+      alert(`${inputSearch.value}is not a city`);
+    });
 };
