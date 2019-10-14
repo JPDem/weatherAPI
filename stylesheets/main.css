@@ -3,7 +3,9 @@
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: Signika;
+  color: #f6f5f5;
+  letter-spacing: 1px;
 }
 
 body {
@@ -26,8 +28,13 @@ body {
           align-items: center;
   padding-top: 20px;
   margin: 40px 20px 20px 20px;
-  background-image: linear-gradient(135deg, #9bac37, #4543c8);
+  background-image: linear-gradient(135deg, #d1ade9, #5e4072);
   border-radius: 6px;
+}
+
+.weather-desc {
+  color: #333030;
+  font-size: 1.4rem;
 }
 
 .textInfo {
@@ -54,18 +61,19 @@ body {
 }
 
 .textInfo .temp {
-  font-size: 3rem;
+  font-size: 5rem;
   margin: 15px;
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  padding-bottom: 10px;
 }
 
 .textInfo .time {
   margin: 5vh;
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 .input-bar {
@@ -89,7 +97,7 @@ body {
   border: none;
   padding: 10px;
   background: none;
-  color: #f1eeee;
+  color: #f6f5f5;
   font-size: 1.3rem;
 }
 
@@ -99,7 +107,7 @@ button {
   background: none;
   border-radius: 50%;
   padding: 9px;
-  background: #f1eeee;
+  background: #f6f5f5;
 }
 
 button .icon-button {

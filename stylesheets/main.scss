@@ -1,4 +1,4 @@
-$textColor: rgb(241, 238, 238);
+$textColor: rgb(246, 245, 245);
 $placeholderColor: rgb(177, 176, 176);
 
 @mixin flex() {
@@ -12,7 +12,9 @@ $placeholderColor: rgb(177, 176, 176);
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: Signika;
+  color: $textColor;
+  letter-spacing: 1px;
 }
 body {
   height: 100vh;
@@ -24,10 +26,15 @@ body {
   margin: 40px 20px 20px 20px;
   background-image: linear-gradient(
     135deg,
-    rgb(155, 172, 55),
-    rgb(69, 67, 200)
+    rgb(209, 173, 233),
+    rgb(94, 64, 114)
   );
   border-radius: 6px;
+}
+
+.weather-desc {
+  color: rgb(51, 48, 48);
+  font-size: 1.4rem;
 }
 .textInfo {
   @include flex();
@@ -38,14 +45,15 @@ body {
     font-size: 2rem;
   }
   .temp {
-    font-size: 3rem;
+    font-size: 5rem;
     margin: 15px;
     cursor: pointer;
     user-select: none;
+    padding-bottom: 10px;
   }
   .time {
     margin: 5vh;
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 }
 .input-bar {

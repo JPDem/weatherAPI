@@ -7,3 +7,4 @@ const apiURLForecast = `${forecast}${apiCity},${apiCountry}${apiID}`;
 console.log(apiURLForecast);
 const cityName = document.querySelector("#city");
 let inputSearch = document.querySelector(".input-search");
+const weatherTemp = document.querySelector(".temp");

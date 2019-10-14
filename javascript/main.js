@@ -1,5 +1,4 @@
 const weatherAPI = () => {
-  console.log(apiCity);
   const apiURL = `${api}${apiCity}${apiID}`;
   fetch(`${api}${apiCity}${apiID}`)
     //convert to json
@@ -8,45 +7,44 @@ const weatherAPI = () => {
     .then(data => {
       generateHtml(data);
       getIcon(data);
+      clickEvent(data);
     });
 };
 
-const generateHtml = data => {
-  console.log(data);
+// weatherTemp.addEventListener("click", () => {
+//   let temp = `${data.main.temp - 273.15}`;
+//   let farenheit = `${Math.round((temp * 9) / 5 + 32)}°F`;
+//   let tempCelsius = `${Math.round(temp)}°C`;
 
+//   if (weatherTemp.textContent === tempCelsius) {
+//     weatherTemp.textContent = farenheit;
+//     console.log("weatherTEmp =d celsius");
+//     console.log(`${Math.round(temp)}°C`);
+//   } else {
+//     console.log(data);
+//     weatherTemp.textContent = `${Math.round(temp)}°C`;
+//     console.log("weatherTEmp =d farenheigt");
+//     console.log(weatherTemp.textContent + " is weatherTemp");
+//     console.log(`${Math.round(temp)}°C is celsius`);
+//     console.log(`${Math.round((temp * 9) / 5 + 32)}°F`);
+//   }
+// });
+
+const generateHtml = data => {
   const countryName = document.querySelector("#country-name");
   const weatherDesc = document.querySelector(".weather-desc");
-  const weatherTemp = document.querySelector(".temp");
-  const weatherType = document.querySelector(".weather-type");
   const desc = `${data.weather[0].description.toUpperCase()}`;
   const country = `${data.sys.country}`;
   const city = data.name;
-  let temp = `${data.main.temp - 273.15}`;
-  let tempCelsius = `${Math.round(temp)}°C`;
   const type = `${data.weather[0].main}`;
-
-  //***********************check click button after new city */
-  weatherTemp.addEventListener("click", () => {
-    console.log(weatherTemp.textContent);
-    console.log(tempCelsius);
-    let newTemp = Math.round(temp);
-    console.log(`${newTemp}°C`);
-    console.log;
-    if (tempCelsius === weatherTemp.textContent) {
-      let tempCelsius = `${Math.round((temp * 9) / 5 + 32)}°F`;
-      weatherTemp.textContent = tempCelsius;
-    } else {
-      let tempCelsius = `${Math.round(temp)}°C`;
-      weatherTemp.textContent = tempCelsius;
-    }
-  });
-  //********************** */8
+  let temp = `${data.main.temp - 273.15}`;
+  let farenheit = `${Math.round((temp * 9) / 5 + 32)}°F`;
+  let tempCelsius = `${Math.round(temp)}°C`;
 
   weatherTemp.textContent = tempCelsius;
   weatherDesc.textContent = desc;
   cityName.textContent = city;
-  countryName.textContent = country;
-  weatherType.textContent = type;
+  // countryName.textContent = country;
 };
 
 const getIcon = data => {
@@ -88,18 +86,18 @@ const constantTime = () => {
   setTime();
 };
 
-const inputCity = () => {
-  let inputSearch = document.querySelector(".input-search");
-  let iconButton = document.querySelector(".icon-button");
-  iconButton.addEventListener("click", () => {
-    fetchData();
-  });
-  inputSearch.addEventListener("keydown", e => {
-    if (e.key === "Enter") {
-      fetchData();
-    }
-  });
-};
+// const inputCity = () => {
+//   let inputSearch = document.querySelector(".input-search");
+//   let iconButton = document.querySelector(".icon-button");
+//   iconButton.addEventListener("click", () => {
+//     fetchData();
+//   });
+//   inputSearch.addEventListener("keydown", e => {
+//     if (e.key === "Enter") {
+//       fetchData();
+//     }
+//   });
+// };
 
 const fetchData = () => {
   let apiCity = inputSearch.value;
@@ -111,8 +109,23 @@ const fetchData = () => {
     .then(data => {
       generateHtml(data);
       getIcon(data);
+      clickEvent(data);
     })
     .catch(error => {
       alert(`${inputSearch.value}is not a city`);
     });
+};
+
+const clickEvent = data => {
+  tempCelsius = weatherTemp.textContent;
+  weatherTemp.addEventListener("click", () => {
+    let temp = `${data.main.temp - 273.15}`;
+    let farenheit = `${Math.round((temp * 9) / 5 + 32)}°F`;
+    let tempCelsius = `${Math.round(temp)}°C`;
+    if (weatherTemp.textContent === tempCelsius) {
+      weatherTemp.textContent = farenheit;
+    } else {
+      weatherTemp.textContent = `${Math.round(temp)}°C`;
+    }
+  });
 };
