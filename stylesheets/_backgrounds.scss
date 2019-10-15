@@ -1,3 +1,32 @@
+@mixin bgSizing {
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
 .rain {
-  background-image: url("../rain.jpg");
+  background-image: url("../assets/weather-pics/rain.jpg");
+  @include bgSizing();
+}
+.mist {
+  background-image: url("../assets/weather-pics/mist.jpg");
+  @include bgSizing();
+}
+
+.clear {
+  background-image: url("../assets/weather-pics/mist.jpg");
+  @include bgSizing();
+}
+
+.snow {
+  background-image: url("../assets/weather-pics/snow.jpg");
+  @include bgSizing();
+}
+.cloud {
+  background-image: url("../assets/weather-pics/cloud.jpg");
+  @include bgSizing();
+}
+
+.sun {
+  background-image: url("../assets/weather-pics/sun.jpg");
+  @include bgSizing();
 }

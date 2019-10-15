@@ -146,6 +146,38 @@ input:focus {
 }
 
 .rain {
-  background-image: url("../rain.jpg");
+  background-image: url("../assets/weather-pics/rain.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.mist {
+  background-image: url("../assets/weather-pics/mist.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.clear {
+  background-image: url("../assets/weather-pics/mist.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.snow {
+  background-image: url("../assets/weather-pics/snow.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.cloud {
+  background-image: url("../assets/weather-pics/cloud.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.sun {
+  background-image: url("../assets/weather-pics/sun.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 /*# sourceMappingURL=main.css.map */
