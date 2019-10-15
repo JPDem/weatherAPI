@@ -4,7 +4,8 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: Signika;
-  color: #f6f5f5;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 1px 1px #979797;
   letter-spacing: 1px;
 }
 
@@ -33,7 +34,7 @@ body {
 }
 
 .weather-desc {
-  color: #333030;
+  color: rgba(255, 255, 255, 0.9);
   font-size: 1.4rem;
 }
 
@@ -97,7 +98,7 @@ body {
   border: none;
   padding: 10px;
   background: none;
-  color: #f6f5f5;
+  color: rgba(255, 255, 255, 0.9);
   font-size: 1.3rem;
 }
 
@@ -107,7 +108,7 @@ button {
   background: none;
   border-radius: 50%;
   padding: 9px;
-  background: #f6f5f5;
+  background: rgba(255, 255, 255, 0.9);
 }
 
 button .icon-button {
@@ -142,5 +143,9 @@ input:focus {
 .icon {
   height: 150px;
   width: 150px;
+}
+
+.rain {
+  background-image: url("../rain.jpg");
 }
 /*# sourceMappingURL=main.css.map */

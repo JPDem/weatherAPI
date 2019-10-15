@@ -32,7 +32,6 @@ const weatherAPI = () => {
 
 const generateHtml = data => {
   const countryName = document.querySelector("#country-name");
-  const weatherDesc = document.querySelector(".weather-desc");
   const desc = `${data.weather[0].description.toUpperCase()}`;
   const country = `${data.sys.country}`;
   const city = data.name;
@@ -45,6 +44,7 @@ const generateHtml = data => {
   weatherDesc.textContent = desc;
   cityName.textContent = city;
   // countryName.textContent = country;
+  includesRain();
 };
 
 const getIcon = data => {
