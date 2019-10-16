@@ -5,7 +5,7 @@
           box-sizing: border-box;
   font-family: Signika;
   color: rgba(255, 255, 255, 0.9);
-  text-shadow: 1px 1px #979797;
+  text-shadow: 1px 1px #807f7f;
   letter-spacing: 1px;
 }
 
@@ -31,6 +31,7 @@ body {
   margin: 40px 20px 20px 20px;
   background-image: linear-gradient(135deg, #d1ade9, #5e4072);
   border-radius: 6px;
+  height: 80vh;
 }
 
 .weather-desc {
@@ -148,36 +149,36 @@ input:focus {
 .rain {
   background-image: url("../assets/weather-pics/rain.jpg");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 100% 100%;
 }
 
 .mist {
   background-image: url("../assets/weather-pics/mist.jpg");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 100% 100%;
 }
 
 .clear {
   background-image: url("../assets/weather-pics/mist.jpg");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 100% 100%;
 }
 
 .snow {
   background-image: url("../assets/weather-pics/snow.jpg");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 100% 100%;
 }
 
 .cloud {
   background-image: url("../assets/weather-pics/cloud.jpg");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 100% 100%;
 }
 
 .sun {
   background-image: url("../assets/weather-pics/sun.jpg");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 100% 100%;
 }
 /*# sourceMappingURL=main.css.map */

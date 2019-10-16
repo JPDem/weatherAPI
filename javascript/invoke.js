@@ -1,3 +1,5 @@
 weatherAPI();
 constantTime();
+forecasts();
+
 // inputCity();

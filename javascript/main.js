@@ -44,7 +44,7 @@ const generateHtml = data => {
   weatherDesc.textContent = desc;
   cityName.textContent = city;
   // countryName.textContent = country;
-  includesRain();
+  backgroundImage();
 };
 
 const getIcon = data => {

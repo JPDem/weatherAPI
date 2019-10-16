@@ -1,4 +1,4 @@
-const includesRain = () => {
+const backgroundImage = () => {
   console.log(weatherDesc.textContent);
   const wrapper = document.querySelector(".wrapper");
   if (
