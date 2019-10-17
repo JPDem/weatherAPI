@@ -2,7 +2,6 @@ const forecasts = () => {
   fetch(apiURLForecast)
     .then(res => res.json())
     .then(data => {
-      console.log(data);
       tempForecast(data);
     });
 };
@@ -12,6 +11,7 @@ const tempForecast = data => {
     if (arrayForecast < 10) {
       clickData(data);
       arrayForecast++;
+      console.log(arrayForecast);
     }
   });
   bkButton.addEventListener("click", () => {
