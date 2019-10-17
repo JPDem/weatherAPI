@@ -42,7 +42,7 @@ const tempForecast = data => {
     alert("frwButton");
     if (arrayForecast < 10) {
       alert(arrayForecast);
-      clickData(data);
+
       arrayForecast++;
       console.log(arrayForecast);
     }
@@ -51,7 +51,6 @@ const tempForecast = data => {
   bkButton.addEventListener("click", () => {
     alert("bkButton");
     if (arrayForecast > 0) {
-      clickData(data);
       arrayForecast--;
       console.log(arrayForecast);
     }
