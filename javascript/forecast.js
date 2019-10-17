@@ -10,32 +10,7 @@ const forecasts = () => {
 //temperature icon time desc
 //generate temperatures up to 10
 const tempForecast = data => {
-  const frwButton = document.querySelector(".forward-button");
-  const bkButton = document.querySelector(".back-button");
 
-  // for (i = 0; i < 11; i++) {
-  //   let timing = new Date().getHours() + (i * 3 + 3);
-  //   if (timing > 24) {
-  //     timing -= 24;
-  //   } else {
-  //     console.log(timing);
-  //   }
-  //   const tempCelsius = Math.round(data.list[i].main.temp - 273.15);
-  //   console.log(` temp:${tempCelsius}
-  //                 icon:${data.list[i].weather[0].icon}
-  //                 desc:${data.list[i].weather[0].description}
-  //                 time:${timing}`);
-  // }
-  console.log(arrayForecast);
-
-  console.log(arrayForecast, "loggeed");
-  frwButton.addEventListener("click", () => {
-    alert("frwButtonclicked");
-  });
-  bkButton.addEventListener("click", () => {
-    alert("bkButtonclicked");
-  });
-};
 
 const forecastIcon = data => {
   const iconHttp = {

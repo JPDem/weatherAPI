@@ -128,4 +128,14 @@ const clickEvent = data => {
       weatherTemp.textContent = `${Math.round(temp)}°C`;
     }
   });
+
+  const frwButton = document.querySelector(".forward-button");
+  const bkButton = document.querySelector(".back-button");
+  console.log(arrayForecast, "loggeed");
+  frwButton.addEventListener("click", () => {
+    alert("frwButtonclicked");
+  });
+  bkButton.addEventListener("click", () => {
+    alert("bkButtonclicked");
+  });
 };
