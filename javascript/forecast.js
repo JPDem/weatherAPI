@@ -29,14 +29,14 @@ const tempForecast = data => {
   console.log(arrayForecast);
 
   console.log(arrayForecast, "loggeed");
-  frwButton.addEventListener("click", () => {
+  frwButton.addEventListener("touchstart", () => {
     if (arrayForecast < 10) {
       clickData(data);
       arrayForecast++;
       console.log(arrayForecast);
     }
   });
-  bkButton.addEventListener("click", () => {
+  bkButton.addEventListener("touchstart", () => {
     if (arrayForecast > 0) {
       clickData(data);
       arrayForecast--;
