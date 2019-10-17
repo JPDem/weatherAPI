@@ -1,21 +1,9 @@
-const tempForecast = data => {
-  frwButton.addEventListener("click", () => {
-    if (arrayForecast < 10) {
-      clickData(data);
-      arrayForecast++;
-      console.log(arrayForecast);
-    }
-  });
-  bkButton.addEventListener("click", () => {
-    if (arrayForecast > 0) {
-      clickData(data);
-      arrayForecast--;
-      console.log(arrayForecast);
-      if (arrayForecast === 0) {
-        forecastTime.textContent = "";
-      }
-    }
-  });
+const forecasts = () => {
+  fetch(apiURLForecast)
+    .then(res => res.json())
+    .then(data => {
+      tempForecast(data);
+    });
 };
 
 const forecastIcon = data => {
@@ -43,4 +31,24 @@ const clickData = data => {
   const approxTime = approxDate.slice(11, 19);
   const approxEnd = approxEnding.slice(11, 19);
   forecastTime.textContent = `apprx. ${approxTime} - ${approxEnd}`;
+};
+
+const tempForecast = data => {
+  frwButton.addEventListener("click", () => {
+    if (arrayForecast < 10) {
+      clickData(data);
+      arrayForecast++;
+      console.log(arrayForecast);
+    }
+  });
+  bkButton.addEventListener("click", () => {
+    if (arrayForecast > 0) {
+      clickData(data);
+      arrayForecast--;
+      console.log(arrayForecast);
+      if (arrayForecast === 0) {
+        forecastTime.textContent = "";
+      }
+    }
+  });
 };

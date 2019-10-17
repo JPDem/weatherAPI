@@ -1,13 +1,6 @@
-const forecasts = () => {
-  fetch(apiURLForecast)
-    .then(res => res.json())
-    .then(data => {
-      tempForecast(data);
-    });
-};
 const weatherAPI = () => {
   const apiURL = `${api}${apiCity}${apiID}`;
-  fetch(`${api}${apiCity}${apiID}`)
+  fetch(apiURL)
     //convert to json
     .then(res => res.json())
     //generate/use data
@@ -73,22 +66,22 @@ const constantTime = () => {
   setTime();
 };
 
-const fetchData = () => {
-  let apiCity = inputSearch.value;
-  const apiURL = `${api}${apiCity}${apiID}`;
-  fetch(apiURL)
-    //convert to json
-    .then(res => res.json())
-    //generate/use data
-    .then(data => {
-      generateHtml(data);
-      getIcon(data);
-      clickEvent(data);
-    })
-    .catch(error => {
-      alert(`${inputSearch.value}is not a city`);
-    });
-};
+// const fetchData = () => {
+//   let apiCity = inputSearch.value;
+//   const apiURL = `${api}${apiCity}${apiID}`;
+//   fetch(apiURL)
+//     //convert to json
+//     .then(res => res.json())
+//     //generate/use data
+//     .then(data => {
+//       generateHtml(data);
+//       getIcon(data);
+//       clickEvent(data);
+//     })
+//     .catch(error => {
+//       alert(`${inputSearch.value}is not a city`);
+//     });
+// };
 
 const clickEvent = data => {
   tempCelsius = weatherTemp.textContent;

@@ -39,6 +39,7 @@ body {
   color: $textColor;
   font-size: 1.4rem;
   text-transform: capitalize;
+  text-align: center;
 }
 .textInfo {
   @include flex();
@@ -79,15 +80,6 @@ body {
   font-size: 1.3rem;
 }
 
-div .button {
-  border: none;
-  cursor: pointer;
-  background: none;
-  border-radius: 50%;
-  padding: 9px;
-  background: $textColor;
-}
-
 ::placeholder {
   color: $placeholderColor;
   opacity: 0.6;
@@ -110,7 +102,6 @@ div .button {
     border-radius: 7px;
     margin: 5%;
     padding: 0 8px;
-    border: none;
     cursor: pointer;
   }
 }
