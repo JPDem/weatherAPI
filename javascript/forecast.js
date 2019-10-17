@@ -1,11 +1,3 @@
-const forecasts = () => {
-  fetch(apiURLForecast)
-    .then(res => res.json())
-    .then(data => {
-      tempForecast(data);
-    });
-};
-
 const tempForecast = data => {
   frwButton.addEventListener("click", () => {
     if (arrayForecast < 10) {

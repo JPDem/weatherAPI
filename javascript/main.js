@@ -10,6 +10,13 @@ const weatherAPI = () => {
       clickEvent(data);
     });
 };
+const forecasts = () => {
+  fetch(apiURLForecast)
+    .then(res => res.json())
+    .then(data => {
+      tempForecast(data);
+    });
+};
 
 const generateHtml = data => {
   const countryName = document.querySelector("#country-name");
