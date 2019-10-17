@@ -1,7 +1,11 @@
+alert("window");
 const forecasts = () => {
+  alert("in forecasts()");
+
   fetch(apiURLForecast)
     .then(res => res.json())
     .then(data => {
+      alert("in fetch and 2nd then");
       tempForecast(data);
     });
 };
@@ -35,20 +39,24 @@ const clickData = data => {
 
 const tempForecast = data => {
   frwButton.addEventListener("click", () => {
+    alert("frwButton");
     if (arrayForecast < 10) {
+      alert(arrayForecast);
       clickData(data);
       arrayForecast++;
       console.log(arrayForecast);
     }
   });
+
   bkButton.addEventListener("click", () => {
+    alert("bkButton");
     if (arrayForecast > 0) {
       clickData(data);
       arrayForecast--;
       console.log(arrayForecast);
-      if (arrayForecast === 0) {
-        forecastTime.textContent = "";
-      }
+    }
+    if (arrayForecast === 0) {
+      forecastTime.textContent = "";
     }
   });
 };

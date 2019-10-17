@@ -1,9 +1,7 @@
 const weatherAPI = () => {
   const apiURL = `${api}${apiCity}${apiID}`;
   fetch(apiURL)
-    //convert to json
     .then(res => res.json())
-    //generate/use data
     .then(data => {
       generateHtml(data);
       getIcon(data);
@@ -65,23 +63,6 @@ const constantTime = () => {
   setInterval(setTime, 1000);
   setTime();
 };
-
-// const fetchData = () => {
-//   let apiCity = inputSearch.value;
-//   const apiURL = `${api}${apiCity}${apiID}`;
-//   fetch(apiURL)
-//     //convert to json
-//     .then(res => res.json())
-//     //generate/use data
-//     .then(data => {
-//       generateHtml(data);
-//       getIcon(data);
-//       clickEvent(data);
-//     })
-//     .catch(error => {
-//       alert(`${inputSearch.value}is not a city`);
-//     });
-// };
 
 const clickEvent = data => {
   tempCelsius = weatherTemp.textContent;
