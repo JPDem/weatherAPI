@@ -1,3 +1,10 @@
+const forecasts = () => {
+  fetch(apiURLForecast)
+    .then(res => res.json())
+    .then(data => {
+      tempForecast(data);
+    });
+};
 const weatherAPI = () => {
   const apiURL = `${api}${apiCity}${apiID}`;
   fetch(`${api}${apiCity}${apiID}`)
@@ -8,13 +15,6 @@ const weatherAPI = () => {
       generateHtml(data);
       getIcon(data);
       clickEvent(data);
-    });
-};
-const forecasts = () => {
-  fetch(apiURLForecast)
-    .then(res => res.json())
-    .then(data => {
-      tempForecast(data);
     });
 };
 
