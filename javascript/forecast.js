@@ -8,13 +8,10 @@ const forecasts = () => {
 };
 
 const tempForecast = data => {
-  console.log(arrayForecast);
-
-  console.log(arrayForecast, "loggeed");
   frwButton.addEventListener("click", () => {
     if (arrayForecast < 10) {
+      clickData(data);
       arrayForecast++;
-      alert(arrayForecast);
     }
   });
   bkButton.addEventListener("click", () => {
