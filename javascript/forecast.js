@@ -3,7 +3,10 @@ const forecasts = () => {
   alert("in forecasts()");
 
   fetch(apiURLForecast)
-    .then(res => res.json())
+    .then(res => {
+      res.json();
+      alert("in first then");
+    })
     .then(data => {
       tempForecast(data);
     });
