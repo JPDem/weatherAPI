@@ -10,6 +10,6 @@ let inputSearch = document.querySelector(".input-search");
 const weatherTemp = document.querySelector(".temp");
 const weatherDesc = document.querySelector(".weather-desc");
 let arrayForecast = 0;
-const forecastTime = document.querySelector(".forecast-time");
+let forecastLoop = 0;
 const frwButton = document.querySelector(".forward-button");
 const bkButton = document.querySelector(".back-button");

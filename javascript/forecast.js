@@ -1,64 +1,68 @@
-alert("window");
 const forecasts = () => {
-  alert("in forecasts()");
-
   fetch(apiURLForecast)
-    .then(res => {
-      res.json();
-      alert("in first then");
-    })
-    .then(data => {
-      tempForecast(data);
+    .then(res => res.json())
+    .then(dataForecast => {
+      tempForecast(dataForecast);
+      dataForecasted(dataForecast);
+      forecastIcon(dataForecast);
     });
+};
 
-  const forecastIcon = data => {
+const forecastIcon = dataForecast => {
+  for (let forecastLoop = 0; forecastLoop <= 4; forecastLoop++) {
     const iconHttp = {
       http: "http://openweathermap.org/img/wn/",
-      id: data.list[arrayForecast].weather[0].icon,
-      iconType: "@2x.png"
+      id: dataForecast.list[forecastLoop].weather[0].icon,
+      iconType: ".png"
     };
 
     const { http, id, iconType } = iconHttp;
     const iconURL = `${http}${id}${iconType}`;
-    const iconPic = document.querySelector(".icon");
+    const iconPic = document.querySelector(`.forecast-icon${forecastLoop}`);
     iconPic.src = iconURL;
-  };
+  }
+};
 
-  const clickData = data => {
-    const tempCelsius = Math.round(data.list[arrayForecast].main.temp - 273.15);
-    const weatherIcon = data.list[arrayForecast].weather[0].icon;
-    const forecastDesc = data.list[arrayForecast].weather[0].description;
-    weatherTemp.textContent = `${tempCelsius}°C`;
+const dataForecasted = dataForecast => {
+  for (let forecastLoop = 0; forecastLoop <= 4; forecastLoop++) {
+    const forecastTemp = document.querySelector(
+      `.forecast-temp${forecastLoop}`
+    );
+    const forecastTime = document.querySelector(
+      `.forecast-time${forecastLoop}`
+    );
+    const tempCelsius = Math.round(
+      dataForecast.list[forecastLoop].main.temp - 273.15
+    );
+
+    const weatherIcon = dataForecast.list[forecastLoop].weather[0].icon;
+    const forecastDesc = dataForecast.list[forecastLoop].weather[0].description;
+    forecastTemp.textContent = `${tempCelsius}°C`;
     weatherDesc.textContent = forecastDesc;
-    forecastIcon(data);
-    const approxDate = data.list[arrayForecast].dt_txt;
-    const approxEnding = data.list[arrayForecast + 1].dt_txt;
-    const approxTime = approxDate.slice(11, 19);
-    const approxEnd = approxEnding.slice(11, 19);
-    forecastTime.textContent = `apprx. ${approxTime} - ${approxEnd}`;
-  };
+    const approxDate = dataForecast.list[forecastLoop].dt_txt;
+    const approxEnding = dataForecast.list[forecastLoop + 1].dt_txt;
+    const approxTime = approxDate.slice(11, 16);
+    forecastTime.textContent = `${approxTime}`;
+  }
+};
 
-  const tempForecast = data => {
-    alert("tempForecast()");
-    frwButton.addEventListener("click", () => {
-      alert("frwButton");
-      if (arrayForecast < 10) {
-        alert(arrayForecast);
+let tempForecast = dataForecast => {
+  frwButton.addEventListener("click", () => {
+    if (arrayForecast < 10) {
+      dataForecasted(dataForecast);
+      arrayForecast++;
+      console.log(arrayForecast);
+    }
+  });
 
-        arrayForecast++;
-        console.log(arrayForecast);
-      }
-    });
-
-    bkButton.addEventListener("click", () => {
-      alert("bkButton");
-      if (arrayForecast > 0) {
-        arrayForecast--;
-        console.log(arrayForecast);
-      }
+  bkButton.addEventListener("click", () => {
+    if (arrayForecast > 0) {
+      dataForecasted(dataForecast);
+      arrayForecast--;
+      console.log(arrayForecast);
       if (arrayForecast === 0) {
         forecastTime.textContent = "";
       }
-    });
-  };
+    }
+  });
 };

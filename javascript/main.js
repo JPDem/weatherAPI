@@ -1,7 +1,9 @@
 const weatherAPI = () => {
   const apiURL = `${api}${apiCity}${apiID}`;
   fetch(apiURL)
+    //convert to json
     .then(res => res.json())
+    //generate/use data
     .then(data => {
       generateHtml(data);
       getIcon(data);
