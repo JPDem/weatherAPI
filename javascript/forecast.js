@@ -4,6 +4,7 @@ const forecasts = () => {
     .then(dataForecast => {
       dataForecasted(dataForecast);
       forecastIcon(dataForecast);
+      clickEventForecast(dataForecast);
     });
 };
 
@@ -42,5 +43,22 @@ const dataForecasted = dataForecast => {
     const approxEnding = dataForecast.list[forecastLoop + 1].dt_txt;
     const approxTime = approxDate.slice(11, 16);
     forecastTime.textContent = `${approxTime}`;
+  }
+};
+
+const clickEventForecast = dataForecast => {
+  for (let i = 0; i <= 4; i++) {
+    weatherTemp.addEventListener("click", () => {
+      let temp = `${dataForecast.list[i].main.temp - 273.15}`;
+      let farenheit = `${Math.round((temp * 9) / 5 + 32)}°F`;
+      let tempCelsius = `${Math.round(temp)}°C`;
+      const includesF = weatherTemp.textContent.includes("F");
+
+      if (includesF) {
+        forecastCelsius[i].textContent = farenheit;
+      } else {
+        forecastCelsius[i].textContent = `${Math.round(temp)}°C`;
+      }
+    });
   }
 };

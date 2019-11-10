@@ -67,7 +67,6 @@ const constantTime = () => {
 };
 
 const clickEvent = data => {
-  tempCelsius = weatherTemp.textContent;
   weatherTemp.addEventListener("click", () => {
     let temp = `${data.main.temp - 273.15}`;
     let farenheit = `${Math.round((temp * 9) / 5 + 32)}°F`;
