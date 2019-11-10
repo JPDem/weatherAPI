@@ -29,7 +29,7 @@ const generateHtml = data => {
 
 const getIcon = data => {
   const iconHttp = {
-    http: "http://openweathermap.org/img/wn/",
+    http: "https://openweathermap.org/img/wn/",
     id: data.weather[0].icon,
     iconType: "@2x.png"
   };
