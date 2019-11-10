@@ -2,7 +2,6 @@ const forecasts = () => {
   fetch(apiURLForecast)
     .then(res => res.json())
     .then(dataForecast => {
-      tempForecast(dataForecast);
       dataForecasted(dataForecast);
       forecastIcon(dataForecast);
     });
@@ -44,25 +43,4 @@ const dataForecasted = dataForecast => {
     const approxTime = approxDate.slice(11, 16);
     forecastTime.textContent = `${approxTime}`;
   }
-};
-
-let tempForecast = dataForecast => {
-  frwButton.addEventListener("click", () => {
-    if (arrayForecast < 10) {
-      dataForecasted(dataForecast);
-      arrayForecast++;
-      console.log(arrayForecast);
-    }
-  });
-
-  bkButton.addEventListener("click", () => {
-    if (arrayForecast > 0) {
-      dataForecasted(dataForecast);
-      arrayForecast--;
-      console.log(arrayForecast);
-      if (arrayForecast === 0) {
-        forecastTime.textContent = "";
-      }
-    }
-  });
 };
