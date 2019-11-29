@@ -26,11 +26,6 @@ body {
   @include flex();
   padding-top: 20px;
   margin: 20px 10px 10px 10px;
-  background-image: linear-gradient(
-    135deg,
-    rgb(209, 173, 233),
-    rgb(94, 64, 114)
-  );
   border-radius: 6px;
   height: 80vh;
 }
@@ -40,7 +35,43 @@ body {
   font-size: 1.4rem;
   text-transform: capitalize;
   text-align: center;
+  cursor: default;
 }
+.off-screen {
+  animation: off-screen 0.5s 1;
+}
+@keyframes off-screen {
+  0% {
+    transform: translate3d(-100vh, 0, 0);
+  }
+}
+
+.top-screen {
+  animation: top-screen 1s 1;
+}
+@keyframes top-screen {
+  0% {
+    transform: translate3d(0, -100vh, 0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+.fade-in {
+  animation: fadeIn 1s;
+}
+
 .textInfo {
   @include flex();
   font-size: 1.3rem;
@@ -48,6 +79,7 @@ body {
   line-height: 40px;
   #city {
     font-size: 2rem;
+    cursor: pointer;
   }
   .temp {
     font-size: 5rem;
@@ -59,8 +91,10 @@ body {
   .time {
     margin: 5vh;
     font-size: 2.5rem;
+    cursor: pointer;
   }
 }
+
 .input-bar {
   background: rgb(45, 42, 63);
   padding: 7px;
@@ -85,11 +119,25 @@ body {
   opacity: 0.6;
 }
 
+@keyframes enlarge {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    transform: scale3d(1.2, 1.2, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
 .icon {
   height: 150px;
   width: 150px;
 }
-
+.enlarge-animation {
+  animation: enlarge 5s infinite;
+}
 .tempChange {
   @include flex();
   flex-direction: row;
@@ -122,7 +170,15 @@ body {
   width: 40px;
 }
 .ftemp {
-  cursor: pointer;
+  cursor: default;
+}
+
+.temp:hover,
+.time:hover,
+#city:hover {
+  color: rgba(52, 246, 253, 1);
+  transition: all 0.2s ease-in;
+  transform: scale3d(1.1, 1.1, 1);
 }
 
 @import "./backgrounds";

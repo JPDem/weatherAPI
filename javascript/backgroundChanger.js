@@ -1,16 +1,16 @@
 const backgroundImage = () => {
-  console.log(weatherDesc.textContent);
   const wrapper = document.querySelector(".wrapper");
+  console.log(weatherDesc.textContent);
   if (
     weatherDesc.textContent.includes("rain") ||
-    weatherDesc.textContent.includes("Drizzle")
+    weatherDesc.textContent.includes("drizzle")
   ) {
     wrapper.classList.toggle("rain");
   }
   if (weatherDesc.textContent.includes("sun")) {
     wrapper.classList.toggle("sun");
   }
-  if (weatherDesc.textContent.includes("clouds")) {
+  if (weatherDesc.textContent.includes("cloud")) {
     wrapper.classList.toggle("cloud");
   }
   if (weatherDesc.textContent.includes("snow")) {

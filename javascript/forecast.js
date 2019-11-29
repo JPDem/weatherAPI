@@ -36,9 +36,7 @@ const dataForecasted = dataForecast => {
     );
 
     const weatherIcon = dataForecast.list[forecastLoop].weather[0].icon;
-    const forecastDesc = dataForecast.list[forecastLoop].weather[0].description;
     forecastTemp.textContent = `${tempCelsius}°C`;
-    weatherDesc.textContent = forecastDesc;
     const approxDate = dataForecast.list[forecastLoop].dt_txt;
     const approxEnding = dataForecast.list[forecastLoop + 1].dt_txt;
     const approxTime = approxDate.slice(11, 16);
@@ -49,16 +47,25 @@ const dataForecasted = dataForecast => {
 const clickEventForecast = dataForecast => {
   for (let i = 0; i <= 4; i++) {
     weatherTemp.addEventListener("click", () => {
-      let temp = `${dataForecast.list[i].main.temp - 273.15}`;
-      let farenheit = `${Math.round((temp * 9) / 5 + 32)}°F`;
-      let tempCelsius = `${Math.round(temp)}°C`;
-      const includesF = weatherTemp.textContent.includes("F");
+      "use strict";
+      const ftemp = document.querySelectorAll(".ftemp");
+      ftemp[i].classList.remove("fade-in");
+      void ftemp[i].offsetWidth;
+      ftemp[i].classList.add("fade-in");
+      setTimeout(() => {
+        let temp = `${dataForecast.list[i].main.temp - 273.15}`;
+        let farenheit = `${Math.round((temp * 9) / 5 + 32)}°F`;
+        let tempCelsius = `${Math.round(temp)}°C`;
+        const includesF = weatherTemp.textContent.includes("F");
 
-      if (includesF) {
-        forecastCelsius[i].textContent = farenheit;
-      } else {
-        forecastCelsius[i].textContent = `${Math.round(temp)}°C`;
-      }
+        if (includesF) {
+          forecastCelsius[i].textContent = farenheit;
+          console.log(farenheit);
+        } else {
+          forecastCelsius[i].textContent = `${Math.round(temp)}°C`;
+          console.log(`${Math.round(temp)}°C`);
+        }
+      }, 500);
     });
   }
 };

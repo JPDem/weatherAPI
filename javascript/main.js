@@ -12,9 +12,8 @@ const weatherAPI = () => {
 };
 
 const generateHtml = data => {
-  const countryName = document.querySelector("#country-name");
   const desc = `${data.weather[0].description}`;
-  const country = `${data.sys.country}`;
+  console.log(desc);
   const city = data.name;
   const type = `${data.weather[0].main}`;
   let temp = `${data.main.temp - 273.15}`;
@@ -23,6 +22,7 @@ const generateHtml = data => {
 
   weatherTemp.textContent = tempCelsius;
   weatherDesc.textContent = desc;
+  console.log(weatherDesc);
   cityName.textContent = city;
   backgroundImage();
 };
@@ -33,7 +33,8 @@ const getIcon = data => {
     id: data.weather[0].icon,
     iconType: "@2x.png"
   };
-
+  console.log(iconHttp.id);
+  console.log(data);
   const { http, id, iconType } = iconHttp;
   const iconURL = `${http}${id}${iconType}`;
   const iconPic = document.querySelector(".icon");
@@ -68,13 +69,23 @@ const constantTime = () => {
 
 const clickEvent = data => {
   weatherTemp.addEventListener("click", () => {
+    "use strict";
+    weatherTemp.classList.remove("fade-in");
+    void weatherTemp.offsetWidth;
+    weatherTemp.classList.add("fade-in");
+
     let temp = `${data.main.temp - 273.15}`;
     let farenheit = `${Math.round((temp * 9) / 5 + 32)}°F`;
     let tempCelsius = `${Math.round(temp)}°C`;
+
     if (weatherTemp.textContent === tempCelsius) {
-      weatherTemp.textContent = farenheit;
+      setTimeout(() => {
+        weatherTemp.textContent = farenheit;
+      }, 500);
     } else {
-      weatherTemp.textContent = `${Math.round(temp)}°C`;
+      setTimeout(() => {
+        weatherTemp.textContent = `${Math.round(temp)}°C`;
+      }, 500);
     }
   });
 };

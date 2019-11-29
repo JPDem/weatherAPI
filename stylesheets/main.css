@@ -30,7 +30,6 @@ body {
           align-items: center;
   padding-top: 20px;
   margin: 20px 10px 10px 10px;
-  background-image: linear-gradient(135deg, #d1ade9, #5e4072);
   border-radius: 6px;
   height: 80vh;
 }
@@ -40,6 +39,74 @@ body {
   font-size: 1.4rem;
   text-transform: capitalize;
   text-align: center;
+  cursor: default;
+}
+
+.off-screen {
+  -webkit-animation: off-screen 0.5s 1;
+          animation: off-screen 0.5s 1;
+}
+
+@-webkit-keyframes off-screen {
+  0% {
+    -webkit-transform: translate3d(-100vh, 0, 0);
+            transform: translate3d(-100vh, 0, 0);
+  }
+}
+
+@keyframes off-screen {
+  0% {
+    -webkit-transform: translate3d(-100vh, 0, 0);
+            transform: translate3d(-100vh, 0, 0);
+  }
+}
+
+.top-screen {
+  -webkit-animation: top-screen 1s 1;
+          animation: top-screen 1s 1;
+}
+
+@-webkit-keyframes top-screen {
+  0% {
+    -webkit-transform: translate3d(0, -100vh, 0);
+            transform: translate3d(0, -100vh, 0);
+  }
+}
+
+@keyframes top-screen {
+  0% {
+    -webkit-transform: translate3d(0, -100vh, 0);
+            transform: translate3d(0, -100vh, 0);
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  -webkit-animation: fadeIn 1s;
+          animation: fadeIn 1s;
 }
 
 .textInfo {
@@ -63,6 +130,7 @@ body {
 
 .textInfo #city {
   font-size: 2rem;
+  cursor: pointer;
 }
 
 .textInfo .temp {
@@ -79,6 +147,7 @@ body {
 .textInfo .time {
   margin: 5vh;
   font-size: 2.5rem;
+  cursor: pointer;
 }
 
 .input-bar {
@@ -126,9 +195,44 @@ body {
   opacity: 0.6;
 }
 
+@-webkit-keyframes enlarge {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.2, 1.2, 1);
+            transform: scale3d(1.2, 1.2, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes enlarge {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.2, 1.2, 1);
+            transform: scale3d(1.2, 1.2, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+
 .icon {
   height: 150px;
   width: 150px;
+}
+
+.enlarge-animation {
+  -webkit-animation: enlarge 5s infinite;
+          animation: enlarge 5s infinite;
 }
 
 .tempChange {
@@ -196,7 +300,17 @@ body {
 }
 
 .ftemp {
-  cursor: pointer;
+  cursor: default;
+}
+
+.temp:hover,
+.time:hover,
+#city:hover {
+  color: #34f6fd;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  -webkit-transform: scale3d(1.1, 1.1, 1);
+          transform: scale3d(1.1, 1.1, 1);
 }
 
 .rain {
@@ -212,7 +326,7 @@ body {
 }
 
 .clear {
-  background-image: url("../assets/weather-pics/mist.jpg");
+  background-image: url("../assets/weather-pics/clear.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
