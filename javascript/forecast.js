@@ -11,7 +11,7 @@ const forecasts = () => {
 const forecastIcon = dataForecast => {
   for (let forecastLoop = 0; forecastLoop <= 4; forecastLoop++) {
     const iconHttp = {
-      http: "http://openweathermap.org/img/wn/",
+      http: "https://openweathermap.org/img/wn/",
       id: dataForecast.list[forecastLoop].weather[0].icon,
       iconType: ".png"
     };
@@ -60,10 +60,8 @@ const clickEventForecast = dataForecast => {
 
         if (includesF) {
           forecastCelsius[i].textContent = farenheit;
-          console.log(farenheit);
         } else {
           forecastCelsius[i].textContent = `${Math.round(temp)}°C`;
-          console.log(`${Math.round(temp)}°C`);
         }
       }, 500);
     });

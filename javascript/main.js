@@ -13,7 +13,6 @@ const weatherAPI = () => {
 
 const generateHtml = data => {
   const desc = `${data.weather[0].description}`;
-  console.log(desc);
   const city = data.name;
   const type = `${data.weather[0].main}`;
   let temp = `${data.main.temp - 273.15}`;
@@ -22,7 +21,6 @@ const generateHtml = data => {
 
   weatherTemp.textContent = tempCelsius;
   weatherDesc.textContent = desc;
-  console.log(weatherDesc);
   cityName.textContent = city;
   backgroundImage();
 };
@@ -33,8 +31,6 @@ const getIcon = data => {
     id: data.weather[0].icon,
     iconType: "@2x.png"
   };
-  console.log(iconHttp.id);
-  console.log(data);
   const { http, id, iconType } = iconHttp;
   const iconURL = `${http}${id}${iconType}`;
   const iconPic = document.querySelector(".icon");

@@ -1,6 +1,5 @@
 const backgroundImage = () => {
   const wrapper = document.querySelector(".wrapper");
-  console.log(weatherDesc.textContent);
   if (
     weatherDesc.textContent.includes("rain") ||
     weatherDesc.textContent.includes("drizzle")
